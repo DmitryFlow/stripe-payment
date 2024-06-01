@@ -1,25 +1,19 @@
-import cors from 'cors';
+export default function handler(req, res) {
+	res.setHeader('Access-Control-Allow-Origin', 'https://allurepremiumservice.com');
+	//res.setHeader('Access-Control-Allow-Origin', '*');
+	res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE');
+	res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
-const corsOptions = {
-  origin: 'https://allurepremiumservice.com',
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type']
-};
+	if (req.method === 'OPTIONS') {
+		res.status(200).end();
+		return;
+	}
 
-const corsMiddleware = cors(corsOptions);
-
-async function handler(req, res) {
-  if (req.method === 'OPTIONS') {
-    res.status(200).end();
-    return;
-  }
-
-  if (req.method === 'GET') {
-    res.status(200).json({ message: 'GET successful!' });
-  } else {
-    res.setHeader('Allow', ['GET']);
-    res.status(405).end(`Method ${req.method} Not Allowed`);
-  }
+	if (req.method === 'GET') {
+		res.status(200).json({ message: 'GET successful!' });
+	} else {
+		res.setHeader('Allow', ['GET']);
+		res.status(405).end(`Method ${req.method} Not Allowed`);
+	}
 }
-
-export default corsMiddleware(handler);
+  
