@@ -1,7 +1,9 @@
 {
   "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
     "firebase": "^10.12.2",
-    "stripe": "^15.8.0",
-	"cors": "^2.8.5"
+    "request": "^2.88.2",
+    "stripe": "^15.8.0"
   }
 }
