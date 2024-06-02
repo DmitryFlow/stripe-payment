@@ -14,7 +14,7 @@ app.get('/api/test-get', (req, res) => {
   res.json({ message: 'GET request successful!' });
 });
 
-app.get('/jokes/random', (req, res) => {
+app.get('/api/jokes/random', (req, res) => {
   request(
     { url: 'https://joke-api-strict-cors.appspot.com/jokes/random' },
     (error, response, body) => {
